@@ -12,7 +12,7 @@ documents = SimpleDirectoryReader(input_files= ["Essay.txt"]).load_data()
 embed_model = HuggingFaceEmbedding()
 # create client
 db = chromadb.PersistentClient(path="./chroma_db")
-chroma_collection = db.get_or_create_collection("paul_collection")
+chroma_collection = db.get_or_create_collection("Essay_collection")
 # save embedding to disk
 vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
@@ -22,7 +22,7 @@ index = VectorStoreIndex.from_documents(
 )
 # load from disk
 db2 = chromadb.PersistentClient(path="./chroma_db")
-chroma_collection = db2.get_or_create_collection("paul_collection")
+chroma_collection = db2.get_or_create_collection("Essay_collection")
 vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
 index = VectorStoreIndex.from_vector_store(
     vector_store,
