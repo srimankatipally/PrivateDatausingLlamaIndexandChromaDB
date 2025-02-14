@@ -28,7 +28,7 @@ http://localhost:11434/
 ## Running the Script
 Execute the script:
 ```bash
-python script.py
+python app.py
 ```
 
 ## Expected Output
